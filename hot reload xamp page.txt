@@ -1,0 +1,3 @@
+npm install -g browser-sync
+
+browser-sync start --proxy "localhost/folder_name" --files "**/*.php"
