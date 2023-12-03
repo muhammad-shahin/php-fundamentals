@@ -47,4 +47,7 @@ class CreateBio
 
 // invoking the class
 $bio1 = new CreateBio("Shahin", 23, "+8801857771268");
-echo $bio1->generateBio();
+echo $bio1->generateBio(), '<br />';
+// we can invoke a class as many time we want
+$bio2 = new CreateBio("Momin", 30, "+8801735776859");
+echo $bio2->generateBio(), '<br />';
