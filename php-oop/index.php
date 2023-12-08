@@ -1,29 +1,31 @@
 <?php
-// overriding property and method
-class Base
+// interface classes
+
+interface parent1
 {
- public $name = "Shahin";
- public function printName()
+ // method can be declared but can't be initialized inside any interface class
+ function calc($a, $b);
+}
+
+interface parent2
+{
+ function sub($c, $d);
+}
+
+class childClass implements parent1, parent2
+{
+ // NOTE: we must have to use the methods of the interfaces that we are implementing
+ public function calc($a, $b) //the method should be compatible with the parent class (means we have to keep the same amount of arguments we used in parent class)
  {
-  echo "<h3>My last name is : $this->name</h3>";
+  echo $a + $b;
+ }
+ public function sub($c, $d)
+ {
+  echo $c - $d;
  }
 }
 
-class Derived extends Base
-{
- // now if we declare the same property that already exist in our base class it will be an override property
- public $name = "Muhammad";
- // override the name property
-
- // here we declare the same method (printName) that already exist in our base class it is an override method now
- public function printName()  // override the printName method
- {
-  echo "<h3>My first name is : $this->name</h3>";
- }
-}
-
-$obj1 = new Base();
-$obj2 = new Derived();
-
-$obj1->printName();
-$obj2->printName();
+$obj = new childClass();
+$obj->calc(10, 35);
+echo "<br>";
+$obj->sub(45, 32);
